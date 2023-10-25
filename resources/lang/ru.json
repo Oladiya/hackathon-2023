@@ -1,0 +1,17 @@
+{
+    "Register": "Регистрация",
+    "Email Address": "E-mail",
+    "Password": "Пароль",
+    "Confirm Password": "Подтверждение пароля",
+    "Login": "Логин",
+    "Sign In": "Вход",
+    "Sign Up": "Регистрация",
+    "Task Manager": "Менеджер Задач",
+    "Last Name": "Фамилия",
+    "First Name": "Имя",
+    "Middle Name": "Отчество",
+    "Remember Me": "Запомнить меня",
+    "Forgot Your Password?": "Забыли пароль?",
+    "Reset Password": "Восстановление пароля",
+    "Send Password Reset Link": "Отправить ссылку для сброса пароля"
+}

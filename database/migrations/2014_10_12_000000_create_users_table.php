@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('surname')->nullable();
+            $table->string('middle_name')->nullable();
             $table->string('login')->unique();
             $table->string('email')->unique();
             $table->boolean('is_admin')->nullable();
