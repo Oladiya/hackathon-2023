@@ -34,9 +34,11 @@
                     <div class="card-body">
 
                         <pre>{{ $task->description }}</pre>
-                        @foreach($task->responsibles as $responsible)
-                            <p class="btn btn-info">{{ $responsible->last_name }}</p>
-                        @endforeach
+                        <div class="d-flex flex-wrap">
+                            @foreach($task->responsibles as $responsible)
+                                <p class="btn btn-info">{{ $responsible->last_name }}</p>
+                            @endforeach
+                        </div>
                     </div>
                     <div class="card-footer">
                         <div class="row row-cols-3">
