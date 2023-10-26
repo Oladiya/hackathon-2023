@@ -42,14 +42,13 @@
                         </div>
                         <div class="card-footer">
                             <div class="row row-cols-3">
-                                <form action="{{ route('task.edit', $task->id) }}">
-                                    <button class="btn btn-warning" type="submit">Редактировать</button>
-                                </form>
+                                <a class="btn btn-warning" href="{{ route('task.edit', $task->id) }}">Редактировать</a>
                                 <form method="post" action="{{ route('task.delete', $task->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit">Удалить</button>
                                 </form>
+                                <a class="btn btn-success" href="{{ route('task.show', $task->id) }}">Комментарии</a>
                             </div>
                         </div>
                     </div>

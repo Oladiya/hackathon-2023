@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,12 @@ Route::prefix('tasks')->name('task.')->middleware('auth')->group( function () {
     Route::get('/{id}/edit', [TaskController::class, 'edit'])->name('edit');
     Route::put('/{id}', [TaskController::class, 'update'])->name('update');
     Route::delete('/{id}', [TaskController::class, 'delete'])->name('delete');
+
+    Route::prefix('/{taskId}/comments')->name('comment.')->group( function () {
+
+        Route::post('/', [CommentController::class, 'store'])->name('store');
+
+    });
 
 });
 
