@@ -108,7 +108,7 @@
 
                                 <div class="col-md-6">
 
-                                    <select class="form-control @error('priority') is-invalid @enderror" name="priority" id="priority">
+                                    <select class="form-select @error('priority') is-invalid @enderror" name="priority" id="priority">
                                         <option value="5" @if($task->priority === 5) selected @endif>Очень высокий</option>
                                         <option value="4" @if($task->priority === 4) selected @endif>Высокий</option>
                                         <option value="3" @if($task->priority === 3) selected @endif>Средний</option>
@@ -125,11 +125,11 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="responsibles" class="col-md-4 col-form-label text-md-end">@lang('Приоритет')</label>
+                                <label for="responsibles" class="col-md-4 col-form-label text-md-end">@lang('Ответственные')</label>
 
                                 <div class="col-md-6">
 
-                                    <select multiple class="form-control @error('responsibles') is-invalid @enderror" name="responsibles[]" id="responsibles">
+                                    <select multiple class="form-select @error('responsibles') is-invalid @enderror" name="responsibles[]" id="responsibles">
                                         @foreach($users as $user)
                                             <option value="{{ $user->id }}" @foreach($task->responsibles as $responsible) @if($user->id === $responsible->id) selected @endif @endforeach >
                                                 {{ $user->last_name }}  {{ $user->first_name }}
