@@ -54,12 +54,12 @@
                     <form method="post" action="{{ route('task.comment.store', $task->id) }}">
                         @csrf
                         <label for="text">@lang('Оставить комментарий')</label>
-                        <textarea class="form-control" name="text" id="text" placeholder="@lang('Комментарий...')" ></textarea>
-                        <button class="btn btn-success" type="submit">@lang('Отправить')</button>
+                        <textarea class="form-control mb-2" name="text" id="text" placeholder="@lang('Комментарий...')" ></textarea>
+                        <button class="btn btn-success mb-2" type="submit">@lang('Отправить')</button>
                     </form>
                     <div class="col">
                         @foreach($task->comments as $comment)
-                            <div class="card">
+                            <div class="card mb-2">
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="w-75">
