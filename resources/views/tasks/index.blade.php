@@ -11,11 +11,11 @@
                     <div class="card mb-3">
                         <div class="card-header">
                             <div class="col">
-                                <div class="row row-cols-2">
+                                <div class="d-flex justify-content-between">
                                     <p class="m-0">{{ $task->name }}</p>
                                     <p>{{ $task->category->name }}</p>
                                 </div>
-                                <div class="row row-cols-3">
+                                <div class="d-flex justify-content-between">
                                     <p class="m-0 align-self-center">{{ __($task->status) }}</p>
                                     <p class="m-0 align-self-center btn btn-secondary">
                                         @switch($task->priority)
@@ -28,7 +28,7 @@
                                         @endswitch
                                     </p>
 
-                                    <p class="m-0">Выполнить до: {{ date('d/m/y H:i', strtotime($task->end)) }}</p>
+                                    <p class="m-0">Выполнить до: {{ date('d.m.y H:i', strtotime($task->end)) }}</p>
                                 </div>
                             </div>
 
@@ -46,7 +46,7 @@
                                 <form method="post" action="{{ route('task.delete', $task->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">Удалить</button>
+                                    <button class="w-100 btn btn-danger" type="submit">Удалить</button>
                                 </form>
                                 <a class="btn btn-success" href="{{ route('task.show', $task->id) }}">Комментарии</a>
                             </div>
