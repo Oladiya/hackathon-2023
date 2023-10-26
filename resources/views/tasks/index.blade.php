@@ -16,8 +16,8 @@
                                     <p>{{ $task->category->name }}</p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <p class="m-0 align-self-center">{{ __($task->status) }}</p>
-                                    <p class="m-0 align-self-center btn btn-secondary">
+                                    <div class="align-self-center">{{ __($task->status) }}</div>
+                                    <div class="align-self-center">
                                         @switch($task->priority)
                                             @case(0) Не имеет значения @break
                                             @case(1) Очень низкий @break
@@ -26,9 +26,9 @@
                                             @case(4) Высокий @break
                                             @case(5) Очень высокий @break
                                         @endswitch
-                                    </p>
+                                    </div>
 
-                                    <p class="m-0">Выполнить до: {{ date('d.m.y H:i', strtotime($task->end)) }}</p>
+                                    <div class="w-25 align-self-center">Выполнить до: {{ date('d.m.y H:i', strtotime($task->end)) }}</div>
                                 </div>
                             </div>
 
