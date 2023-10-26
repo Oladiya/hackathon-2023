@@ -13,5 +13,8 @@
     "Remember Me": "Запомнить меня",
     "Forgot Your Password?": "Забыли пароль?",
     "Reset Password": "Восстановление пароля",
-    "Send Password Reset Link": "Отправить ссылку для сброса пароля"
+    "Send Password Reset Link": "Отправить ссылку для сброса пароля",
+    "in process": "В процессе",
+    "completed": "Выполнено",
+    "postponed": "Отложено"
 }

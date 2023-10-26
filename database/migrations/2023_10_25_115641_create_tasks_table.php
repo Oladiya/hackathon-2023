@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('priority');
             $table->string('status');
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('creator_id');
             $table->timestamps();
         });
     }
