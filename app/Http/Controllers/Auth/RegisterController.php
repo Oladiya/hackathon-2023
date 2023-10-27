@@ -48,7 +48,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -66,7 +66,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\Models\User
      */
     protected function create(array $data)
@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'password' => $data['password'],
         ]);
 
-        if($user->id === 1){
+        if ($user->id === 1) {
             $user->is_admin = true;
             $user->is_approved = true;
             $user->save();
@@ -89,29 +89,38 @@ class RegisterController extends Controller
         return $user;
     }
 
-    public function showRegistrationForm($hash)
+    public function showRegistrationForm($hash = null)
     {
-        $hash = Link::where('hash', $hash)->get();
-        if(isset($hash[0])){
+        if (!User::exists()) {
+            return view('auth.register');
+        }
+        $link = Link::where('hash', $hash)->get();
+        if (isset($link[0])) {
+            $hash = $link[0]->hash;
             return view('auth.register', compact('hash'));
         }
         return redirect()->route('home');
     }
 
-    public function register(Request $request, $hash)
+    public function register(Request $request, $hash = null)
     {
-        $link = Link::where('hash', $hash)
-            ->where('user_id', null)
-            ->get();
-        $link = $link[0];
-        if(!isset($link)){
-            return redirect()->route('home');
+        if (isset($hash)){
+            $link = Link::where('hash', $hash)
+                ->where('user_id', null)
+                ->get();
+            $link = $link[0];
+            if (!isset($link)) {
+                return redirect()->route('home');
+            }
         }
 
         $data = $this->validator($request->all());
         $user = $this->create($data->validated());
-        $link->user_id = $user->id;
-        $link->save();
+
+        if (isset($hash)) {
+            $link->user_id = $user->id;
+            $link->save();
+        }
 
         $credentials = [
             'login' => $request->get('login'),

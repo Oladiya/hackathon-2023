@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Sign Up') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register', $hash[0]->hash) }}">
+                    <form method="POST" action="@isset($hash) {{ route('register', $hash) }} @else {{ route('first-register') }} @endisset">
                         @csrf
 
                         <div class="row mb-3">

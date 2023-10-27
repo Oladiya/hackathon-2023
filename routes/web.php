@@ -70,6 +70,7 @@ Auth::routes();
 Route::get('/register', function () {
     return redirect()->route('register');
 })->name('old-reg');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('first-register');
 Route::get('/register/{hash}', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register/{hash}', [RegisterController::class, 'register'])->name('register.store');
 

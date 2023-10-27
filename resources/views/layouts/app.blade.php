@@ -42,6 +42,11 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Sign In') }}</a>
                                 </li>
                             @endif
+                            @if (! \App\Models\User::exists())
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('first-register') }}">{{ __('Sign Up') }}</a>
+                                </li>
+                            @endif
 
                         @else
                             @if(auth()->user()->is_approved)
