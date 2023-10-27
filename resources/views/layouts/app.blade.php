@@ -43,15 +43,20 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                        @else
+                            @if(auth()->user()->is_approved)
+                                @if(auth()->user()->is_admin)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('link.index') }}"> @lang('Ссылки')</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('user.index') }}"> @lang('Пользователи')</a>
+                                    </li>
+                                @endif
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
+                                    <a class="nav-link" href="{{ route('task.create') }}"> @lang('Добавить задачу')</a>
                                 </li>
                             @endif
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('task.create') }}"> @lang('Добавить задачу')</a>
-                            </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

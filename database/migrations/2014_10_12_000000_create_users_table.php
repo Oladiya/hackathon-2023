@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('middle_name')->nullable();
             $table->string('login')->unique();
             $table->string('email')->unique();
-            $table->boolean('is_admin')->nullable();
+            $table->boolean('is_admin')->default(false);
+            $table->boolean('is_approved')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
