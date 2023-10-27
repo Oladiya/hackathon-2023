@@ -23,8 +23,9 @@ class TaskController extends Controller
     {
 
         $users = User::all();
+        $categories = Category::all();
 
-        return view('tasks.create', compact('users'));
+        return view('tasks.create', compact('users', 'categories'));
 
     }
 
@@ -78,8 +79,9 @@ class TaskController extends Controller
 
         $task = Task::findOrFail($id);
         $users = User::all();
+        $categories = Category::all();
 
-        return view('tasks.edit', compact('task', 'users'));
+        return view('tasks.edit', compact('task', 'users', 'categories'));
 
     }
 

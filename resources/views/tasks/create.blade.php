@@ -28,10 +28,16 @@
 
                             <div class="row mb-3">
                                 <label for="category" class="col-md-4 col-form-label text-md-end">@lang('Категория')</label>
-
                                 <div class="col-md-6">
-                                    <input id="category" type="text" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ old('category') }}" required autocomplete="category">
-
+                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                    <div class="wrapper">
+                                        <select id="category" class=" editableBox">
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input class="timeTextBox @error('category') is-invalid @enderror" required autocomplete="category" value="{{ old('category') }}" name="category" maxlength="5"/>
+                                    </div>
                                     @error('category')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
