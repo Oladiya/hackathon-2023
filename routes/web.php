@@ -62,6 +62,7 @@ Route::prefix('users')->name('user.')->middleware(['auth', 'admin', 'approved'])
     Route::post('/{id}/approve', [UserController::class, 'approve'])->name('approve');
     Route::post('/{id}/reject', [UserController::class, 'reject'])->name('reject');
     Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::delete('/{id}', [UserController::class, 'delete'])->name('delete');
 
 });
 

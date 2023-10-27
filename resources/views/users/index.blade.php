@@ -61,6 +61,11 @@
                                             <button class="btn btn-danger" type="submit">@lang('Выдать права администратора')</button>
                                         </form>
                                     @endif
+                                    <form method="post" action="{{ route('user.delete', $user->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">@lang('Удалить пользователя')</button>
+                                    </form>
                                 @else
                                     <form method="post" action="{{ route('user.approve', $user->id) }}">
                                         @csrf
